@@ -17,21 +17,21 @@ export default class LogstashMetrics {
         }
     }
 
-    public static metric(type: string, message: string) {
+    public static metric(type: string, data: object) {
         if(this.ls_url !== undefined && this.production){
-            Axios.post(this.ls_url, this.buildMetric(type, message)).then(r => {
+            Axios.post(this.ls_url, this.buildMetric(type, data)).then(r => {
                 if (r.status != 200){
                     console.log("!!! Could not send metrics to logstash !!!");
                 }
             });
         } else {
             console.log("logstash metric: ")
-            console.log(this.buildMetric(type, message));
+            console.log(this.buildMetric(type, data));
         }
     }
 
-    private static buildMetric(type: string, message: string){
-        return {type: type, message: message}
+    private static buildMetric(type: string, data: object){
+        return {type: type, data: data}
     }
 
 }
