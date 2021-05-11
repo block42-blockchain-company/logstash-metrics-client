@@ -1,7 +1,7 @@
 {
   "name": "logstash-metrics-client",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.3",
+  "description": "Send json data to logstash instance (http listener)",
   "main": "./index.js",
   "types": "./index.ts",
   "scripts": {
